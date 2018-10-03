@@ -40,21 +40,46 @@ document.addEventListener("DOMContentLoaded",()=>{
 
       if (allBlocks.length) {
         for (let i = 0; i < allBlocks.length; i++) {
-          allBlocks[i].moveBlock();
+          allBlocks[i].moveBlock();//set interval to move all the blocks
           let x =baseObj.rectangleCrashExamine(allBlocks[i].downDivWrap, bird.div);
           let y = baseObj.rectangleCrashExamine(allBlocks[i].upDivWrap, bird.div);
-          let z = bird.div.offsetTop >= 390;
+          let z = bird.div.offsetTop >= 465;//493px-28px
+
           if (x || y || z) {
             window.clearInterval(landTimer);//clear the interval for land
             window.clearInterval(blockTimer)
             jsWrapBg.removeEventListener('click',birdSpeed)
 
-            jsScore.style.display = "none"; //hide the score
+            // jsScore.style.display = "none"; //hide the score
             jsGameOver.style.display = "block"; // display gameover
           }
         }
-      }//set interval to move all the blocks
-    }
+
+        if (allBlocks[0].downDivWrap.offsetLeft==-31) {
+          score++;//add the score
+          if (score < 10) {
+
+            jsNum1.style.backgroundImage = "url(img/" + score + ".jpg)";
+          } else if (score < 100) {
+            jsNum2.style.display = "block";
+            jsNum1.style.backgroundImage = "url(img/" + parseInt(score/10) + ".jpg)";
+            jsNum2.style.backgroundImage = "url(img/" + score%10 + ".jpg)";
+          } else if (score < 1000) {
+            jsNum3.style.display = "block";
+            jsNum1.style.backgroundImage = "url(img/" + parseInt(score/100) + ".jpg)";
+            jsNum2.style.backgroundImage = "url(img/" + parseInt(score/10)%10 + ".jpg)";
+            jsNum3.style.backgroundImage = "url(img/" + score%10 + ".jpg)";
+          }
+        }
+
+        if (allBlocks[0].downDivWrap.offsetLeft < -50) {
+          jsWrapBg.removeChild(allBlocks[0].downDivWrap);
+          jsWrapBg.removeChild(allBlocks[0].upDivWrap);
+          allBlocks.shift(allBlocks[0]);
+        }//clear the block if it leaves the background
+      }
+      }
+
 
     jsStartBtn.addEventListener('click',e=>{
       jsHeadTitle.style.display = "none"; //hide the title
@@ -64,7 +89,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       bird.flyBird(); //controll the bird fall speed make it drop
 
       birdSpeed=function(){
-        bird.fallSpeed = -8;
+        bird.fallSpeed = -7;
       }
       jsWrapBg.addEventListener('click',birdSpeed)
 

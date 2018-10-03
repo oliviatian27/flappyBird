@@ -41,6 +41,20 @@
 	position: absolute;top: 493px;left: 343px;
 }
 
+#score{
+	position:absolute;
+	left: 130px;
+	top:50px;
+	z-index: 1;
+}
+
+#score div{
+	height: 39px;
+	width: 28px;
+	float: left;
+	background-image: url(../img/0.jpg);
+	display: none;
+}
 
 #gameOver{
 	position: absolute;
