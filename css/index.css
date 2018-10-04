@@ -26,7 +26,7 @@
 	padding: 0;margin: 0;
 	background-image: url(../img/start.png);
 	background-size: 180px 50px;
-	position: absolute;left: 320px;top: 250px;
+	position: absolute;left: 320px;top: 350px;
 }
 
 #grassLand1{/*草地1*/
@@ -35,7 +35,7 @@
 	position: absolute;top: 493px;
 }
 
-#grassLand2{/*草地2*/
+#grassLand2{
 	height: 14px;width: 800px;
 	background-image: url(../img/banner.jpg);
 	position: absolute;top: 493px;left: 343px;
@@ -64,4 +64,30 @@
 	z-index: 1;
 	width:300px;
 	left: 160px;
+}
+
+@keyframes animPipe {
+   0% { left: 900px; }
+   100% { left: -100px; }
+}
+
+.pipe
+{
+   animation: animPipe 5000ms linear;
+}
+
+
+
+
+#user_name{
+	position: absolute;
+	top: 250px;
+	text-align: center;
+  opacity: 0.3;
+	/* z-index:; */
+	width:300px;
+	height: 40px;
+	left: 250px;
+	font-size: 30px;
+	color: red;
 }

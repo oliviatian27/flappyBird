@@ -4,9 +4,9 @@ class Block {
 	constructor(jsWrapBg) {
 		this.upDivWrap = null;
 		this.downDivWrap = null;
-		this.downHeight = baseObj.randomNum(0,150);
+		this.downHeight = baseObj.randomNum(20,200);
 		this.gapHeight = baseObj.randomNum(150,160);
-		this.upHeight = 380 - this.downHeight - this.gapHeight;
+		this.upHeight = 410 - this.downHeight - this.gapHeight;
 		this.createBlock(jsWrapBg)
 		allBlocks.push(this)
 	}
@@ -18,6 +18,7 @@ class Block {
 		newDiv.style.position = positionType;
 		newDiv.style.left = left;
 		newDiv.style.top = top;
+		newDiv.classList.add("pipe")
 		newDiv.style.backgroundImage = url;  //"url(/img/0.jpg)"
 		return newDiv;
 	}
@@ -28,20 +29,18 @@ class Block {
 		this.upDivWrap = this.createDiv(null, null, "absolute", "800px");
 		this.upDivWrap.appendChild(upDiv1);
 		this.upDivWrap.appendChild(upDiv2);//create up pipe using two pipe together
-
 		var downDiv1 = this.createDiv("url(img/down_pipe.png)", "60px");
 		var downDiv2 = this.createDiv("url(img/down_mod.png)", this.downHeight +"px");
 		this.downDivWrap = this.createDiv(null, null, "absolute", "800px", 433 - this.downHeight + "px");
 		this.downDivWrap.appendChild(downDiv1);
 		this.downDivWrap.appendChild(downDiv2); //create down pipe using two pipe together
-
 		jsWrapBg.appendChild(this.upDivWrap);
 		jsWrapBg.appendChild(this.downDivWrap);
 	}
 
-		moveBlock() { //move the block
-			this.upDivWrap.style.left = this.upDivWrap.offsetLeft - 3 + "px";
-			this.downDivWrap.style.left = this.downDivWrap.offsetLeft - 3 + "px";
-		}
+		// moveBlock() { //move the block
+		// 	this.upDivWrap.style.left = this.upDivWrap.offsetLeft - 3 + "px";
+		// 	this.downDivWrap.style.left = this.downDivWrap.offsetLeft - 3 + "px";
+		// }
 
 }
