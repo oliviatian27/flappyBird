@@ -12,7 +12,7 @@
 	width: 450px;height: 550px;
 	background-image: url(../img/head.png);
 	background-size: 450px 550px;
-	position: relative; left: 200px; top: 70px;
+	position: relative; left: 180px; top: 70px;
 
 }
 
@@ -58,17 +58,25 @@
 
 #gameOver{
 	position: absolute;
-	top: 50px;
-	text-align: center;
+	/* top: 50px; */
+	/* text-align: center; */
 	display: none;
-	z-index: 1;
-	width:300px;
-	left: 160px;
+
+	width:70%;
+	left: 25%;
+}
+
+#ok{
+	width: 350px;
+	position: absolute;
+    left: 9%;
+    margin-top: 230px;
+
 }
 
 @keyframes animPipe {
-   0% { left: 900px; }
-   100% { left: -100px; }
+   0% { left: 830px; }
+   100% { left: -50px; }
 }
 
 .pipe
@@ -85,9 +93,42 @@
 	text-align: center;
   opacity: 0.3;
 	/* z-index:; */
-	width:300px;
+	width:360px;
 	height: 40px;
-	left: 250px;
+	left: 235px;
 	font-size: 30px;
 	color: red;
+}
+
+#rank{
+	color: #e8aec8;
+	font-size: 20px;
+	position: absolute;
+	left: 10%;
+	width: 50%;
+	top: 20px;
+  z-index: auto;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+#rank  #list  .name{
+	text-align: left;
+	position: absolute;
+    /* left: 6%;
+		top: auto; */
+}
+#rank  #list  .score{
+	position: absolute;
+    right: 1%;
+}
+
+#rank > span.name{
+	font-size: 40px;
+	position: relative;
+	left: 1%;
+}
+#rank > span.score{
+	font-size: 40px;
+	position:relative;
+		left: 43%;
 }

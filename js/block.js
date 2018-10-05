@@ -4,9 +4,9 @@ class Block {
 	constructor(jsWrapBg) {
 		this.upDivWrap = null;
 		this.downDivWrap = null;
-		this.downHeight = baseObj.randomNum(20,200);
+		this.downHeight = baseObj.randomNum(20,180);
 		this.gapHeight = baseObj.randomNum(150,160);
-		this.upHeight = 410 - this.downHeight - this.gapHeight;
+		this.upHeight = 400 - this.downHeight - this.gapHeight;
 		this.createBlock(jsWrapBg)
 		allBlocks.push(this)
 	}
